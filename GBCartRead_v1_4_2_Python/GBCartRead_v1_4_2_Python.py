@@ -67,6 +67,8 @@ elif (cartridgeType == 29):
     print ('MBC5+RUMBLE+RAM')
 elif (cartridgeType == 30):
     print ('MBC5+RUMBLE+RAM+BATTERY')
+elif (cartridgeType == 252):
+    print ('Gameboy Camera')
 else:
     print ('Not found')
     
@@ -115,6 +117,8 @@ elif (ramSize == 2):
     print ('8 KBytes\n')
 elif (ramSize == 3):
     print ('32 KBytes (4 banks of 8Kbytes)\n')
+elif (ramSize == 4):
+    print ('128 KBytes (16 banks of 8Kbytes)')
 else:
     print ('Not Found\n')
 
