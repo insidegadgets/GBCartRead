@@ -59,7 +59,8 @@ called "ASMotor" (we've included it).
 REVISION HISTORY
 =================================
 v1.4.2 (14 November 2014)
-- Fixed gameTitle array length issue, thanks Frode vdM and David R
+- Fixed gameTitle array length issue (thanks Frode vdM and David R)
+- Added Gameboy Camera support (thanks Frode vdM)
 
 v1.4.1 (3 January 2014)
 - Changed wrPin from pin 13 to A3 to suit Gameboy Cart Shield v1.2

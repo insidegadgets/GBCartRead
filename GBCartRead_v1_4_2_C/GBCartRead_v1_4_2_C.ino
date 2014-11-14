@@ -76,6 +76,7 @@ void loop() {
   if (romSize == 84) { romBanks = 96; }
   int ramBanks = 1; // Default 8K RAM
   if (ramSize == 3) { ramBanks = 4; }
+  if (ramSize == 4){ ramBanks = 16; } // GB Camera
   
   // Cartridge Header
   if (strstr(readInput, "HEADER")) {
