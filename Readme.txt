@@ -1,9 +1,12 @@
-GBCartRead v1.4.2 - Gameboy Cart Reader Readme
+GBCartRead v1.5 - Gameboy Cart Reader Readme
 By insideGadgets - http://www.insidegadgets.com / support@insidegadgets.com
 
 GBCartRead is an Arduino based Gameboy Cartridge Reader which uses a C program or python 
-script to interface with the Arduino. GBCartRead allows you to dump your ROM,
-save the RAM and write to the RAM.
+script to interface with the Arduino. GBCartRead allows you to dump your ROM, save the RAM and write to the RAM.
+
+Works for Arduino Duemilanove and Uno. Will work for 5V Arduinos but requires pin changes.
+
+Speed increase thanks to Frode vdM. (fvdm1992@yahoo.no)
 
 
 REQUIREMENTS
@@ -31,33 +34,37 @@ Note: It is important to insert your Gameboy Cartridge before you plug in your A
 RAM data loss if you insert when the Arduino is on.
 
 --- OPTION 1 - PYTHON PROGRAM ---
-1. Upload "GBCartRead_v1_4_2_Python.ino" to the Arduino.
+1. Upload "GBCartRead_v1_5.ino" to the Arduino.
 2. Download and install Python 3.2 (http://www.python.org/download/) and pySerial (http://pypi.python.org/pypi/pyserial)
-3. Open up the "GBCartRead_v1_4_2_Python.py" script by right clicking it and selecting “Edit with IDLE”.
+3. Open up the "GBCartRead_v1_5_Python_Reader.py" script by right clicking it and selecting “Edit with IDLE”.
 4. Change the 'COM2' serial port to the serial port that your Arduino is connected on. You can find this out 
    from the Arduino software by going to Tools -> Serial port when the Arduino is plugged in
 5. Press F5 to run the script.
-6. A new window appears, press 1 to Dump the ROM, 2 to Backup your RAM or 3 to Load your RAM file. 
-   Hashes (#) will start printing every few seconds and a file called <gametitle>.gb or .sav will be created if
-   you chose option 1 or 2. If you choose option 3, it will load the save from <gametitle>.sav.
-
+6. A new window will appear, press 0 to Read the header, 1 to Dump the ROM, 2 to Backup your RAM or 
+   3 to Load your RAM file. Hashes (#) will start printing every few seconds and a file called <gametitle>.gb or .sav 
+   will be created if you chose option 1 or 2. If you choose option 3, it will load the save from <gametitle>.sav.
 
 --- OPTION 2 - C PROGRAM ---
-1. Upload "GBCartRead_v1_4_2_C.ino" to the Arduino.
+1. Upload "GBCartRead_v1_5.ino" to the Arduino.
 2. Open config.ini and change the COM serial port number up the top to the serial port that your Arduino
    is connected on. You can find this out from the Arduino software by going to Tools -> Serial port
    when the Arduino is plugged in
-3. Run gbcartread.exe in Windows or re-compile the source for your OS
-4. A new window appears, press 1 to Dump the ROM, 2 to Backup your RAM or 3 to Load your RAM file. 
-   Hashes (#) will start printing every few seconds and a file called <gametitle>.gb or .sav will be created if
-   you chose option 1 or 2. If you choose option 3, it will load the save from <gametitle>.sav.
+3. Run "GBCartRead_v1_5_C_Reader" in Windows or re-compile the source for your OS
+4. A new window will appear, press 0 to Read the header, 1 to Dump the ROM, 2 to Backup your RAM or 
+   3 to Load your RAM file. Hashes (#) will start printing every few seconds and a file called <gametitle>.gb or .sav 
+   will be created if you chose option 1 or 2. If you choose option 3, it will load the save from <gametitle>.sav.
 
 We recommended verifying your Gameboy ROM using "xgbfix.exe -v -d <your_rom.rom>" found in the project 
-called "ASMotor" (we've included it).
+called "ASMotor" (we've included it). We also recommend verifying your save files too.
 
 
 REVISION HISTORY
 =================================
+v1.5 (15 November 2014)
+- Speed increases by using direct PORT writing/reading and sending 64bytes at a time (thanks Frode vdM. fvdm1992@yahoo.no)
+- Compacting functions (thanks Frode vdM. fvdm1992@yahoo.no)
+- Delays when pulsing WR/RD/MREQ pins reduced to a few NOP cycles
+
 v1.4.2 (14 November 2014)
 - Fixed gameTitle array length issue (thanks Frode vdM and David R)
 - Added Gameboy Camera support (thanks Frode vdM)
