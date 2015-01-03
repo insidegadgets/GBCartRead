@@ -1,9 +1,9 @@
 /*
- GBCartRead - Gameboy Cart Reader - Arduino Serial Reader
- Version: 1.5
+ GBCartRead - Gameboy Cart Reader for reading data from Arduino serial
+ Version: 1.6
  Author: Alex from insideGadgets (www.insidegadgets.com)
  Created: 21/07/2013
- Last Modified: 15/11/2014
+ Last Modified: 3/01/2015
 
  */
 
@@ -37,11 +37,15 @@ void read_config(void) {
 	char* buffer;
 	if (configfile != NULL) {
 		// Allocate memory 
-		buffer = (char*) malloc (sizeof(char) * 2);
+		buffer = (char*) malloc (sizeof(char) * 8);
 		
-		// Copy the file into the buffer, we only read 2 characters
+		// Copy the first line into the buffer for COM port
 		fread (buffer, 1, 2, configfile);
 		cport_nr = atoi(buffer);
+		
+		// Copy the second line into the buffer for baud rate
+		fread (buffer, 1, 8, configfile);
+		bdrate = atol(buffer);
 		
 		fclose (configfile);
 		free (buffer);
@@ -56,7 +60,7 @@ int read_one_letter(void) {
 }
 
 // Write serial data to file - used for ROM and RAM dumping
-void write_to_file(char* filename, char* cmd) {
+void write_to_file(char* filename, char* cmd, int blocksize) {
 	// Create a new file
 	FILE *pFile = fopen(filename, "wb");
 	RS232_cputs(cport_nr, cmd);
@@ -74,10 +78,20 @@ void write_to_file(char* filename, char* cmd) {
 			fwrite((char *) buf, 1, n, pFile);
 			printf("#");
 			Kbytesread += n;
-			if (Kbytesread / 32768 == uptoKbytes) {
-				printf("%iK", (Kbytesread/32768) * 32);
-				uptoKbytes++;
+			
+			if (blocksize == 32) {
+				if (Kbytesread / 32768 == uptoKbytes) {
+					printf("%iK", (Kbytesread/32768) * 32);
+					uptoKbytes++;
+				}
 			}
+			else {
+				if (Kbytesread / 1024 >= uptoKbytes) {
+					printf("%iK", (Kbytesread/1024));
+					uptoKbytes++;
+				}
+			}
+			
 			fflush(stdout);
 			timeout = 0;
 		}
@@ -114,46 +128,28 @@ void read_from_file(char* filename, char* cmd) {
 	
 	int Kbytesread = 0;
 	int uptoKbytes = 1;
-	unsigned char buf[4096];
 	unsigned char readbuf[100];
-	int n = 0;
 	while(1) {
-		n = RS232_PollComport(cport_nr, buf, 4095);
-		
-		if (n > 0) {
-			buf[n] = 0;
-			
-			// Exit if save is finished
-			if (strstr((const char*) buf, "END")) {
-				break;
-			}
-			
-			fread((char *) readbuf, 1, 64, pFile);
-			readbuf[64] = 0;
-			
-			// Becuase Sendbuf doesn't work properly, so send one byte at a time
-			int z = 0;
-			for (z = 0; z < 64; z++) {
-				RS232_SendByte(cport_nr, readbuf[z]);
-				Sleep(1);
-			}
-			
-			printf("#");
-			Kbytesread += n;
-			if (Kbytesread / 32768 == uptoKbytes) {
-				printf("%iK", (Kbytesread/32768) * 32);
-				uptoKbytes++;
-			}
-			fflush(stdout);
-		}
-		else {
+		if (!(fread((char *) readbuf, 1, 64, pFile))) {
 			break;
 		}
+		readbuf[64] = 0;
+		
+		// Send 64 bytes at a time
+		RS232_SendBuf(cport_nr, readbuf, 64);
+		
+		printf("#");
+		Kbytesread += 64;
+		if (Kbytesread / 1024 == uptoKbytes) {
+			printf("%iK", (Kbytesread/1024));
+			uptoKbytes++;
+		}
+		fflush(stdout);
 		
 		#ifdef _WIN32
-		Sleep(20);
+		Sleep(5);
 		#else
-		usleep(200000); // Sleep for 200 milliseconds
+		usleep(5000); // Sleep for 200 milliseconds
 		#endif
 	}
 	
@@ -163,10 +159,10 @@ void read_from_file(char* filename, char* cmd) {
 int main() {
 	read_config();
 	
-	printf("GBCartRead v1.5 by insideGadgets\n");
+	printf("GBCartRead v1.6 by insideGadgets\n");
 	printf("################################\n\n");
 	
-	printf("Opening COM PORT %d...\n\n", cport_nr+1);
+	printf("Opening COM PORT %d at %d baud...\n\n", cport_nr+1, bdrate);
 	
 	// Open COM port
 	if(RS232_OpenComport(cport_nr, bdrate)) {
@@ -322,14 +318,14 @@ int main() {
 			printf ("\nDumping ROM to %s.gb... ", gametitle);
 			strncpy(filename, gametitle, 20);
 			strcat(filename, ".gb");
-			write_to_file(filename, "READROM\n");
+			write_to_file(filename, "READROM\n", 32);
 			printf ("\nFinished\n");
 		}
 		else if (userInput == '2') {    
 			printf ("\nDumping RAM to %s.sav... ", gametitle);
 			strncpy(filename, gametitle, 20);
 			strcat(filename, ".sav");
-			write_to_file(filename, "READRAM\n");
+			write_to_file(filename, "READRAM\n", 1);
 			printf ("\nFinished\n");
 		}
 		else if (userInput == '3') { 

@@ -104,6 +104,14 @@ int RS232_OpenComport(int comport_number, int baudrate)
                    break;
     case  230400 : baudr = B230400;
                    break;
+    case  300000 : baudr = B300000;
+                   break;
+    case  350000 : baudr = B350000;
+                   break;
+    case  400000 : baudr = B400000;
+                   break;
+    case  450000 : baudr = B450000;
+                   break;
     case  460800 : baudr = B460800;
                    break;
     case  500000 : baudr = B500000;
@@ -118,7 +126,7 @@ int RS232_OpenComport(int comport_number, int baudrate)
                    return(1);
                    break;
   }
-
+	
   Cport[comport_number] = open(comports[comport_number], O_RDWR | O_NOCTTY | O_NDELAY);
   if(Cport[comport_number]==-1)
   {
@@ -374,7 +382,17 @@ int RS232_OpenComport(int comport_number, int baudrate)
                    break;
     case  128000 : strcpy(baudr, "baud=128000 data=8 parity=N stop=1 dtr=on rts=on");
                    break;
+	 case  230400 : strcpy(baudr, "baud=230400 data=8 parity=N stop=1 dtr=on rts=on");
+                   break;
     case  256000 : strcpy(baudr, "baud=256000 data=8 parity=N stop=1 dtr=on rts=on");
+                   break;
+	 case  300000 : strcpy(baudr, "baud=300000 data=8 parity=N stop=1 dtr=on rts=on");
+                   break;
+	 case  350000 : strcpy(baudr, "baud=350000 data=8 parity=N stop=1 dtr=on rts=on");
+                   break;
+	 case  400000 : strcpy(baudr, "baud=400000 data=8 parity=N stop=1 dtr=on rts=on");
+                   break;
+	 case  460800 : strcpy(baudr, "baud=460800 data=8 parity=N stop=1 dtr=on rts=on");
                    break;
     case  500000 : strcpy(baudr, "baud=500000 data=8 parity=N stop=1 dtr=on rts=on");
                    break;

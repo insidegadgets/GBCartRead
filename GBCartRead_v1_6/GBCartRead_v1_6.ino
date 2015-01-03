@@ -1,28 +1,32 @@
 /*
  GBCartRead
- Version: 1.5
+ Version: 1.6
  Author: Alex from insideGadgets (http://www.insidegadgets.com)
  Created: 18/03/2011
  Last Modified: 15/11/2014
  
- Read ROM, Read RAM or Write RAM from/to a Gameboy Cartridge.
- Works for Arduino Duemilanove and Uno. Will work for 5V Arduinos but requires pin changes.
+ GBCartRead is an Arduino based Gameboy Cartridge Reader which uses a C program or python script to interface with 
+ the Arduino. GBCartRead allows you to dump your ROM, save the RAM and write to the RAM.
+
+ Works with Arduino Duemilanove and Uno. Will work for 5V Arduinos but requires wiring changes.
+
+ Speed increase thanks to Frode vdM. (fvdm1992@yahoo.no) and David R
  
- Speed increase thanks to Frode vdM. (fvdm1992@yahoo.no)
 */
 
 // Edit these in pindelcarations.h too
 int latchPin = 10;
 int dataPin = 11;
-int clockPin = 12;
+int clockPin = 13;
 int rdPin = A5;
 int wrPin = A3;
 int mreqPin = A4;
 
 #include "pindeclarations.h"
+#include <SPI.h>
 
 void setup() {
-  Serial.begin(57600);
+  Serial.begin(400000);
   pinMode(latchPin, OUTPUT);
   pinMode(clockPin, OUTPUT);
   pinMode(dataPin, OUTPUT);
@@ -33,6 +37,12 @@ void setup() {
   // Set pins as inputs
   DDRB &= ~((1<<PB0) | (1<<PB1)); // D8 & D9
   DDRD &= ~((1<<PD2) | (1<<PD3) | (1<<PD4) | (1<<PD5) | (1<<PD6) | (1<<PD7)); // D2 to D7
+  
+  // Setup SPI
+  SPI.begin();
+  SPI.setBitOrder(MSBFIRST);
+  SPI.setDataMode(SPI_MODE0);
+  SPI.setClockDivider(SPI_CLOCK_DIV2);
 }
 
 void loop() {
@@ -145,8 +155,6 @@ void loop() {
   
   // Write RAM
   else if (strstr(readInput, "WRITERAM")) {
-    Serial.println("START");
-    
     // MBC2 Fix (unknown why this fixes it, maybe has to read ROM before RAM?)
     readByte(0x0134);
     unsigned int addr = 0;
@@ -166,28 +174,22 @@ void loop() {
         
         // Write RAM
         for (addr = 0xA000; addr <= endaddr; addr=addr+64) {  
-          Serial.println("NEXT"); // Tell Python script to send next 64bytes
           
           // Wait for serial input
-          for (int i = 0; i < 64; i++) {
-            while (Serial.available() <= 0) {
-              delay(1);
-            }
+          for (uint8_t i = 0; i < 64; i++) {
+            // Wait for serial input
+            while (Serial.available() <= 0);
             
             // Read input
-            uint8_t bval = 0;
-            if (Serial.available() > 0) {
-              char c = Serial.read();
-              bval = (int) c;
-            }
+            uint8_t bval = (uint8_t) Serial.read();
             
             // Write to RAM
             mreqPin_low;
-       	    writeByte(addr+i, bval);
+            writeByte(addr+i, bval);
             asm volatile("nop");
             asm volatile("nop");
             asm volatile("nop");
-            mreqPin_high;
+            mreqPin_high; 
           }
         }
       }
@@ -196,7 +198,6 @@ void loop() {
       writeByte(0x0000, 0x00);
       Serial.flush(); // Flush any serial data that wasn't processed
     }
-    Serial.println("END");
   }
 }
 
@@ -240,19 +241,10 @@ void writeByte(int address, uint8_t data) {
 
 // Use the shift registers to shift out the address
 void shiftoutAddress(unsigned int shiftAddress) {
-  for (int8_t i = 15; i >= 0; i--) {
-    if (shiftAddress & (1<<i)) {
-      dataPin_high;
-    } 
-    else {
-      dataPin_low;
-    }
-    clockPin_high;
-    clockPin_low;
-  }
+  SPI.transfer(shiftAddress >> 8);
+  SPI.transfer(shiftAddress & 0xFF);
 
   latchPin_low;
   asm volatile("nop");
   latchPin_high;
 }
-

@@ -4,9 +4,11 @@ import sys
 import time
 import atexit
 
-ser = serial.Serial('COM2', 57600, timeout=1) # Change COM2 to the port the Arduino is on
+# Change COM2 to the port the Arduino is on.
+# You can lower the baud rate of 400Kbit if you have issues connecting to the Arduino or the ROM has checksum errors
+ser = serial.Serial('COM2', 400000, timeout=1) 
 
-sys.stdout.write('\nGBCartRead v1.5 by insideGadgets\n')
+sys.stdout.write('\nGBCartRead v1.6 by insideGadgets\n')
 sys.stdout.write('#################################\n')
 sys.stdout.flush()
 
@@ -211,16 +213,8 @@ while (waitInput == 1):
                 fileExists = 0
             if (fileExists == 1):
                 ser.write('WRITERAM'.encode())
+                time.sleep(0.5); # Wait for Arduino to setup
                 while 1:
-                    waitArduino = 1
-                    while waitArduino == 1:
-                        line = ser.readline()
-                        lineascii = ascii(line)
-                        if lineascii.find('NEXT') >= 0:
-                            waitArduino = 0
-                        if lineascii.find('END') >= 0:
-                            doExit = 1
-                            break
                     if printHash % 4 == 0 and printHash != 0: # 256 / 64 = 4
                         sys.stdout.write('#')
                         sys.stdout.flush()
@@ -230,13 +224,11 @@ while (waitInput == 1):
                         sys.stdout.flush()
                     printHash += 1
                     
-                    if doExit == 1:
-                        break
-
                     line1 = f.read(64) # Read 64bytes of save file
                     if not line1:
                         break
                     ser.write(line1)
+                    time.sleep (0.005); # Wait 5ms for Arduino to process the 64 bytes
                     
                 sys.stdout.write('\nFinished\n\n')
                 sys.stdout.flush()

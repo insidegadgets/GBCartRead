@@ -2251,36 +2251,36 @@ Standard 14-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 <part name="P+1" library="SparkFun" deviceset="VCC" device="" value="5V"/>
 <part name="GND2" library="SparkFun" deviceset="GND" device=""/>
 <part name="P+2" library="SparkFun" deviceset="VCC" device="" value="5V"/>
-<part name="R29" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
+<part name="R29" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
 <part name="U$3" library="SparkFun" deviceset="M32" device=""/>
 <part name="JP1" library="SparkFun" deviceset="M14" device=""/>
-<part name="R19" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R31" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R20" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R1" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R2" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R3" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R4" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R5" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R6" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R7" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R8" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R9" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R10" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R11" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R12" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R13" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R14" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R15" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R16" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R21" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R22" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R23" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R24" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R25" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R26" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R27" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
-<part name="R28" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="10K"/>
+<part name="R19" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R31" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R20" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R1" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R2" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R3" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R4" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R5" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R6" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R7" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R8" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R9" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R10" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R11" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R12" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R13" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R14" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R15" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R16" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R21" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R22" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R23" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R24" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R25" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R26" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R27" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
+<part name="R28" library="SparkFun" deviceset="RESISTOR" device="PTH1" value="470 Ohm"/>
 <part name="GND3" library="SparkFun" deviceset="GND" device=""/>
 </parts>
 <sheets>
@@ -2300,17 +2300,17 @@ Standard 14-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 <instance part="R29" gate="G$1" x="213.36" y="109.22"/>
 <instance part="U$3" gate="G$1" x="167.64" y="134.62" rot="R270"/>
 <instance part="JP1" gate="G$1" x="-12.7" y="43.18"/>
-<instance part="R19" gate="G$1" x="134.62" y="106.68" smashed="yes" rot="R90">
-<attribute name="NAME" x="132.8166" y="101.854" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="134.62" y="112.014" size="1.778" layer="96" rot="R90"/>
+<instance part="R19" gate="G$1" x="134.62" y="101.6" smashed="yes" rot="R90">
+<attribute name="NAME" x="132.8166" y="96.774" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="134.62" y="106.934" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R31" gate="G$1" x="139.7" y="106.68" smashed="yes" rot="R90">
-<attribute name="NAME" x="137.8966" y="101.854" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="139.7" y="112.014" size="1.778" layer="96" rot="R90"/>
+<instance part="R31" gate="G$1" x="139.7" y="101.6" smashed="yes" rot="R90">
+<attribute name="NAME" x="137.8966" y="96.774" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="139.7" y="106.934" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R20" gate="G$1" x="137.16" y="106.68" smashed="yes" rot="R90">
-<attribute name="NAME" x="135.3566" y="101.854" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="137.16" y="112.014" size="1.778" layer="96" rot="R90"/>
+<instance part="R20" gate="G$1" x="137.16" y="101.6" smashed="yes" rot="R90">
+<attribute name="NAME" x="135.3566" y="96.774" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="137.16" y="106.934" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="R1" gate="G$1" x="93.98" y="58.42" smashed="yes">
 <attribute name="NAME" x="89.154" y="60.2234" size="1.778" layer="95" rot="R180"/>
@@ -2529,7 +2529,7 @@ Standard 14-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 <pinref part="JP1" gate="G$1" pin="12"/>
 </segment>
 </net>
-<net name="PIN12" class="0">
+<net name="PIN13" class="0">
 <segment>
 <wire x1="53.34" y1="55.88" x2="45.72" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="55.88" x2="-2.54" y2="55.88" width="0.1524" layer="91"/>
@@ -2650,7 +2650,7 @@ Standard 14-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 <segment>
 <wire x1="33.02" y1="93.98" x2="33.02" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="58.42" x2="-2.54" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="101.6" x2="134.62" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="96.52" x2="134.62" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="93.98" x2="134.62" y2="93.98" width="0.1524" layer="91"/>
 <label x="-2.54" y="58.42" size="1.778" layer="95"/>
 <pinref part="JP1" gate="G$1" pin="14"/>
@@ -2661,7 +2661,7 @@ Standard 14-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 <segment>
 <wire x1="35.56" y1="91.44" x2="35.56" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="27.94" x2="-2.54" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="101.6" x2="137.16" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="96.52" x2="137.16" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="91.44" x2="137.16" y2="91.44" width="0.1524" layer="91"/>
 <label x="-2.54" y="27.94" size="1.778" layer="95"/>
 <pinref part="JP1" gate="G$1" pin="2"/>
@@ -2672,7 +2672,7 @@ Standard 14-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 <segment>
 <wire x1="38.1" y1="25.4" x2="38.1" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="25.4" x2="38.1" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="101.6" x2="139.7" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="96.52" x2="139.7" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="38.1" y1="88.9" x2="139.7" y2="88.9" width="0.1524" layer="91"/>
 <label x="-2.54" y="25.4" size="1.778" layer="95"/>
 <pinref part="JP1" gate="G$1" pin="1"/>
@@ -2913,7 +2913,7 @@ Standard 14-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 </net>
 <net name="*RD" class="0">
 <segment>
-<wire x1="137.16" y1="124.46" x2="137.16" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="124.46" x2="137.16" y2="106.68" width="0.1524" layer="91"/>
 <label x="137.16" y="124.46" size="1.778" layer="95" rot="R270"/>
 <pinref part="U$3" gate="G$1" pin="4"/>
 <pinref part="R20" gate="G$1" pin="2"/>
@@ -2921,7 +2921,7 @@ Standard 14-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 </net>
 <net name="*WR" class="0">
 <segment>
-<wire x1="134.62" y1="124.46" x2="134.62" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="124.46" x2="134.62" y2="106.68" width="0.1524" layer="91"/>
 <label x="134.62" y="124.46" size="1.778" layer="95" rot="R270"/>
 <pinref part="U$3" gate="G$1" pin="3"/>
 <pinref part="R19" gate="G$1" pin="2"/>
@@ -3009,7 +3009,7 @@ Standard 14-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 </net>
 <net name="*MREQ" class="0">
 <segment>
-<wire x1="139.7" y1="124.46" x2="139.7" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="124.46" x2="139.7" y2="106.68" width="0.1524" layer="91"/>
 <label x="139.7" y="124.46" size="1.778" layer="95" rot="R270"/>
 <pinref part="U$3" gate="G$1" pin="5"/>
 <pinref part="R31" gate="G$1" pin="2"/>
