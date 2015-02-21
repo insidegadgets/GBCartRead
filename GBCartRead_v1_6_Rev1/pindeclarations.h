@@ -47,7 +47,7 @@
 #define latchPin_low  PORTB &= ~(1<<PB2);
 #define dataPin_high  PORTB |= (1<<PB3);
 #define dataPin_low   PORTB &= ~(1<<PB3);
-#define clockPin_high PORTB |= (1<<PB4);
-#define clockPin_low  PORTB &= ~(1<<PB4);
+#define clockPin_high PORTB |= (1<<PB5);
+#define clockPin_low  PORTB &= ~(1<<PB5);
 
 #endif /* PIN_DECLARATIONS_H_ */

@@ -1,9 +1,9 @@
 /*
  GBCartRead
- Version: 1.6
+ Version: 1.6 Rev 1
  Author: Alex from insideGadgets (http://www.insidegadgets.com)
  Created: 18/03/2011
- Last Modified: 15/11/2014
+ Last Modified: 17/02/2014
  
  GBCartRead is an Arduino based Gameboy Cartridge Reader which uses a C program or python script to interface with 
  the Arduino. GBCartRead allows you to dump your ROM, save the RAM and write to the RAM.

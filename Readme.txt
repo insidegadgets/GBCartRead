@@ -59,6 +59,9 @@ called "ASMotor" (we've included it). We also recommend verifying your save file
 
 REVISION HISTORY
 =================================
+v1.6 Rev 1 (17 February 2015)
+- Fixed clockPin to change correct port - PB5 (thanks Anna)
+
 v1.6 (3 January 2015)
 - Speed increase by using a higher baud rate (400Kbit from 57.6Kbit) and using hardware SPI (thanks David R)
 - Changed SCK from pin 12 to pin 13 for SPI
