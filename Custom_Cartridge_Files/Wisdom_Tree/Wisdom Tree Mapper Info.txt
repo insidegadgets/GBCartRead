@@ -1,0 +1,18 @@
+The Wisdom Tree mapper is triggered by writes in the 0x0000-0x3FFF area. The address written to determines the bank to switch in in the 0x000-0x7FFF address space. This mapper uses 32KB sized banks.
+
+Mame checks for all 00's between 0x134 and 0x14C to identify Wisdom Tree games, I have done this here as well.
+
+0x600 contains a unique byte value for each game
+Spritual Warfare	-	0x79
+NIV Bible		-	0x78
+King James Bible	-	0x00
+Joshua			-	0x05
+Exodus			-	0x7C
+
+I combine these two methods to detect all 5 Wisdom Tree cartidges, although I can only test Spiritual Warfare.
+
+
+
+
+----------------------------------------------------------------------------
+Provided by Benjamin E
